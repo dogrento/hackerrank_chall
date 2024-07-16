@@ -21,24 +21,27 @@ vector<string> getFilePathList(string absPath){
 
 int main(){
     string filePath = "./input_files";
-
     vector<string> filePathList = getFilePathList(filePath);
 
     cout << "-----opening file.-----" << endl;
     ifstream inputFile{filePathList[0]};
-
     if(!inputFile){
         cerr << "can't open file" << '\n';
         return 1;
     }
 
+    cout << "------ collecting file lines ------"<< endl;
     string line;
+    vector<string> lines;
     while(getline(inputFile, line)){
-        cout << line << endl;
+        lines.push_back(line);
     }
-
     cout << "-----closing file.-----" << endl;
     inputFile.close();
+
+    for(const auto& inputLine : lines){
+        cout << inputLine << endl;
+    }
 
     return 0;
 }
