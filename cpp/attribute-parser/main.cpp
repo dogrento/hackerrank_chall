@@ -39,9 +39,13 @@ int main(){
     cout << "-----closing file.-----" << endl;
     inputFile.close();
 
-    for(const auto& inputLine : lines){
-        cout << inputLine << endl;
-    }
+    stringstream ss(lines[0]);
+    int nLines, nQueries;
+    ss >> nLines >> nQueries;
+    cout << nLines << ' ' << nQueries << endl;
+    // for(int i = 0; < size(lines); i++){
+    //     // cout << inputLine << endl;
+    // }
 
     return 0;
 }
